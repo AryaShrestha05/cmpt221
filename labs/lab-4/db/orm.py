@@ -23,9 +23,10 @@ def insert_professors():
     """Insert 3 records into the Professors table using SQLAlchemy ORM."""
     session = get_session()
     try:
-        # TODO: create three professor objects
-        # TODO: use the sqlalchemy orm to insert the new records as a list of professor objects
-        # "save" the changes
+        prof1 = Professor(P_FirstName="Alice", P_LastName="Johnson", P_Email="alice.johnson@university.edu")
+        prof2 = Professor(P_FirstName="Bob", P_LastName="Smith", P_Email="bob.smith@university.edu")
+        prof3 = Professor(P_FirstName="Carol", P_LastName="Lee", P_Email="carol.lee@university.edu")
+        session.add_all([prof1,prof2,prof3])
         session.commit()
 
     except Exception as e:
@@ -39,9 +40,9 @@ def update_professor():
     """Update one record in the Professors table using SQLAlchemy ORM."""
     session = get_session()
     try:
-        # TODO: get professor to be updated (would ideally be a parameter)
-        # TODO: use the sqlalchemy orm to update 1 record
-        # "save" the changes
+        professor = session.query(Professor).filter_by(ProfessorID=2).first()
+        if professor:
+            professor.P_Email = "bob.smith.statistics@university.edu"  # update field
         session.commit()
     
     except Exception as e:
@@ -55,9 +56,9 @@ def delete_professor():
     """Delete one record in the Professors table using SQLAlchemy ORM."""
     session = get_session()
     try:
-        # TODO: get professor to be deleted (would ideally be a parameter)
-        # TODO: use the sqlalchemy orm to delete 1 record
-        # "save" the changes
+        professor = session.query(Professor).filter_by(ProfessorID=3).first()
+        if professor:
+            session.delete(professor)
         session.commit()
 
     except Exception as e:
