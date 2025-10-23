@@ -18,3 +18,34 @@ def get_all(table) -> list:
     
     finally:
         session.close()
+
+def insert(record) -> None:
+    session = get_session()
+    try:
+        session.add(record)
+        session.commit()
+    except Exception as e:
+        session.rollback()
+        print(f"Error inserting record: {e}")
+        raise e
+    finally:
+        session.close()
+
+def get_user_by_email(table, email) -> object:
+    """Find a user by email address using SQLAlchemy ORM.
+
+        args: 
+            table (object): db table
+            email (str): email address to search for
+
+        returns:
+            user (object): user record from db table, or None if not found
+    """
+    session = get_session()
+    try:
+        # find user by email
+        user = session.query(table).filter(table.Email == email).first()
+        return user
+    
+    finally:
+        session.close()

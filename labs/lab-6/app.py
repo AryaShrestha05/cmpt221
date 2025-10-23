@@ -2,8 +2,8 @@
 
 import os
 from dotenv import load_dotenv
-from flask import Flask, render_template
-from db.query import get_all
+from flask import Flask, render_template, request, redirect, url_for
+from db.query import get_all, insert, get_user_by_email
 from db.server import init_database
 from db.schema import Users
 
@@ -22,6 +22,7 @@ def create_app():
     app = Flask(__name__, 
                 template_folder=os.path.join(os.getcwd(), 'templates'), 
                 static_folder=os.path.join(os.getcwd(), 'static'))
+    
     
     # connect to db
     app.config["SQLALCHEMY_DATABASE_URI"] = db_url
@@ -42,17 +43,39 @@ def create_app():
         """Home page"""
         return render_template('index.html')
     
-    @app.route('/signup')
+    @app.route('/signup', methods=['GET', 'POST'])
     def signup():
         """Sign up page: enables users to sign up"""
-        #TODO: implement sign up logic here
-
+        if request.method == 'POST':
+            user = Users(
+                FirstName=request.form.get('firstname'),
+                LastName=request.form.get('lastname'),
+                Email=request.form.get('email'),
+                Password=request.form.get('password'),
+                PhoneNumber=request.form.get('phone')
+            )
+            
+            insert(user)
+            return redirect(url_for('success'))
+        
         return render_template('signup.html')
     
-    @app.route('/login')
+    @app.route('/login', methods=['GET', 'POST'])
     def login():
         """Log in page: enables users to log in"""
-        # TODO: implement login logic here
+        if request.method == 'POST':
+            email = request.form.get('email')
+            password = request.form.get('password')
+            
+            # Find user by email
+            user = get_user_by_email(Users, email)
+            
+            # Check if user exists and password matches
+            if user and user.Password == password:
+                return redirect(url_for('success'))
+            else:
+                # If login fails, redirect back to login page
+                return redirect(url_for('login'))
 
         return render_template('login.html')
 
@@ -73,5 +96,5 @@ def create_app():
 
 if __name__ == "__main__":
     app = create_app()
-    # debug refreshes your application with your new changes every time you save
+   
     app.run(debug=True)

@@ -4,11 +4,43 @@
         <title>Lab 6 Sign Up</title>
         <link rel="stylesheet" href="/static/style.css">
     </head>
-    <body>
+    <body style="text-align: center; padding: 50px;">
         <h1>Sign Up</h1>
-        <div>
-            <!-- Create a sign up form here -->
-        </div>
+        <form method="post" action="/signup">
+            <div style="margin: 10px;">
+                <label for="firstname">First Name:</label><br>
+                <input type="text" id="firstname" name="firstname" required>
+            </div>
+            
+            <div style="margin: 10px;">
+                <label for="lastname">Last Name:</label><br>
+                <input type="text" id="lastname" name="lastname" required>
+            </div>
+            
+            <div style="margin: 10px;">
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div style="margin:10px;">
+                <label for="phone">Phone Number:</label><br>
+                <input type="phone" id="phone" name="phone" required>
+            </div>
+            
+            <div style="margin: 10px;">
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <div style="margin: 10px;">
+                <label for="confirm_password">Confirm Password:</label><br>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+            
+            <div style="margin: 20px;">
+                <button type="submit">Sign Up</button>
+            </div>
+        </form>
 
         <br>
         <a href="/">
