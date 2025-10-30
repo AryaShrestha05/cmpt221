@@ -40,7 +40,25 @@ def create_app():
         """Home page"""
         return render_template('index.html')
     
-    # add more routes here!
+    @app.route('/about')
+    def about():
+        """About page - intentionally confusing"""
+        return render_template('about.html')
+    
+    @app.route('/contact')
+    def contact():
+        """Contact page - intentionally frustrating"""
+        return render_template('contact.html')
+    
+    @app.route('/gallery')
+    def gallery():
+        """Gallery page - intentionally chaotic"""
+        return render_template('gallery.html')
+    
+    @app.route('/services')
+    def services():
+        """Services page - confusing intermediate page"""
+        return render_template('services.html')
 
     return app
 
