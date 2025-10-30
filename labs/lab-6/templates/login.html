@@ -6,9 +6,22 @@
     </head>
     <body>
         <h1>Log In</h1>
-        <div>
-        <!-- Create a log in form here -->
-
+        <div style="text-align: center; padding: 50px;">
+            <form method="post" action="/login">
+                <div style="margin: 10px;">
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div style="margin: 10px;">
+                    <label for="password">Password:</label><br>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <div style="margin: 20px;">
+                    <button type="submit">Log In</button>
+                </div>
+            </form>
         </div>
         
         <br>
