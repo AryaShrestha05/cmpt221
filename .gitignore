@@ -40,3 +40,12 @@ venv.bak/
 
 # mac
 .DS_Store
+
+# Sphinx documentation build output
+labs/lab-9/docs/_build/
+
+# GitHub Pages docs directory (at root, contains built files)
+/docs/
+
+# GitHub Pages
+.nojekyll
