@@ -43,7 +43,9 @@ venv.bak/
 
 # Sphinx documentation build output
 labs/lab-9/docs/_build/
-docs/
+
+# GitHub Pages docs directory (at root, contains built files)
+/docs/
 
 # GitHub Pages
 .nojekyll
