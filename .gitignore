@@ -40,3 +40,11 @@ venv.bak/
 
 # mac
 .DS_Store
+
+# Sphinx documentation build output
+labs/lab-9/docs/_build/
+docs/
+
+# GitHub Pages
+.nojekylllabs/lab-9/docs/_build/
+.nojekyll
