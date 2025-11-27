@@ -4,37 +4,47 @@ Resources
 Official Documentation
 ----------------------
 
-* `Flask Documentation <https://flask.palletsprojects.com/>`_ - Comprehensive Flask framework documentation
-* `SQLAlchemy Documentation <https://www.sqlalchemy.org/>`_ - ORM and database toolkit documentation
-* `PostgreSQL Documentation <https://www.postgresql.org/docs/>`_ - PostgreSQL database documentation
-* `Sphinx Documentation <https://www.sphinx-doc.org/>`_ - Documentation generator documentation
-* `pytest Documentation <https://docs.pytest.org/>`_ - Testing framework documentation
+These are the docs I've found most helpful:
+
+* `Flask Documentation <https://flask.palletsprojects.com/>`_ - When Flask does something weird, check here
+* `SQLAlchemy Documentation <https://www.sqlalchemy.org/>`_ - ORM stuff can be confusing, this helps
+* `PostgreSQL Documentation <https://www.postgresql.org/docs/>`_ - Database reference
+* `Sphinx Documentation <https://www.sphinx-doc.org/>`_ - How this documentation was built
+* `pytest Documentation <https://docs.pytest.org/>`_ - Testing help
 
 Tutorials and Learning Resources
 ---------------------------------
 
-* `W3Schools HTML <https://www.w3schools.com/html/>`_ - HTML tutorials and reference
-* `W3Schools CSS <https://www.w3schools.com/css/>`_ - CSS tutorials and reference
-* `W3Schools Python <https://www.w3schools.com/python/>`_ - Python tutorials and reference
-* `Real Python <https://realpython.com/>`_ - Python tutorials and articles
+For when the official docs are too technical:
+
+* `W3Schools HTML <https://www.w3schools.com/html/>`_ - Great for HTML basics (used this for lab 5)
+* `W3Schools CSS <https://www.w3schools.com/css/>`_ - CSS help
+* `W3Schools Python <https://www.w3schools.com/python/>`_ - Python basics
+* `Real Python <https://realpython.com/>`_ - Really good tutorials, usually explains things well
 
 Git and Version Control
 -----------------------
 
-* `Git Documentation <https://git-scm.com/doc>`_ - Official Git documentation
-* `GitHub Guides <https://guides.github.com/>`_ - GitHub tutorials and guides
-* `Atlassian Git Tutorials <https://www.atlassian.com/git/tutorials>`_ - Comprehensive Git tutorials
+Git can be confusing, these help:
+
+* `Git Documentation <https://git-scm.com/doc>`_ - The official docs
+* `GitHub Guides <https://guides.github.com/>`_ - GitHub's tutorial pages
+* `Atlassian Git Tutorials <https://www.atlassian.com/git/tutorials>`_ - Really detailed Git tutorials
 
 Security Resources
 ------------------
 
-* `OWASP Top 10 <https://owasp.org/www-project-top-ten/>`_ - Common web application security risks
-* `bcrypt Documentation <https://github.com/pyca/bcrypt/>`_ - Password hashing library
+From lab 6 where we learned about password security:
+
+* `OWASP Top 10 <https://owasp.org/www-project-top-ten/>`_ - Common security issues to watch out for
+* `bcrypt Documentation <https://github.com/pyca/bcrypt/>`_ - How we hash passwords
 
 Additional Tools
 ----------------
 
-* `Postman <https://www.postman.com/>`_ - API development and testing
-* `pgAdmin <https://www.pgadmin.org/>`_ - PostgreSQL administration tool
-* `VS Code <https://code.visualstudio.com/>`_ - Recommended code editor
+Tools that might be useful:
+
+* `Postman <https://www.postman.com/>`_ - For testing APIs
+* `pgAdmin <https://www.pgadmin.org/>`_ - What we use to manage PostgreSQL databases
+* `VS Code <https://code.visualstudio.com/>`_ - My code editor of choice
 

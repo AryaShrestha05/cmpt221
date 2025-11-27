@@ -1,10 +1,8 @@
-.. CMPT221 documentation master file, created by
-   sphinx-quickstart on 2024.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Welcome to CMPT221 Documentation!
+==================================
 
-Welcome to CMPT221's documentation!
-===================================
+This is the documentation for all the labs I've been working on for CMPT221. 
+Hopefully this helps you (or future me) figure things out!
 
 .. toctree::
    :maxdepth: 2

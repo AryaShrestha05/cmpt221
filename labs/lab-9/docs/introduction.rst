@@ -1,44 +1,44 @@
 Introduction
 ============
 
-Welcome to the CMPT221 Lab Repository documentation!
+Welcome to the CMPT221 lab repository documentation.
 
-This repository contains lab assignments and projects for CMPT221 (Computer Science course). Each lab focuses on different aspects of web development, databases, and software engineering practices.
+This repo contains all the lab assignments I've been working on for CMPT221. Each lab builds on the previous one and covers different topics like web development, databases, and working with Flask.
 
 Repository Structure
 --------------------
 
-The repository is organized into the following structure:
+Here's how the repo is organized:
 
-* ``labs/`` - Contains individual lab directories
-  * ``lab-1/`` - Creating a Pull Request
-  * ``lab-2/`` - Virtual Environment Setup
-  * ``lab-3/`` - Creating & Connecting to a Postgres DB
-  * ``lab-4/`` - Object-Relational Mapping (ORM)
-  * ``lab-5/`` - Building a GUI
-  * ``lab-6/`` - User Authentication & Login System
-  * ``lab-8/`` - Unit Testing
-  * ``lab-9/`` - Documentation (this lab)
+* ``labs/`` - All the lab directories go here
+  * ``lab-1/`` - Pull Requests (first lab!)
+  * ``lab-2/`` - Setting up virtual environments
+  * ``lab-3/`` - Connecting to PostgreSQL database
+  * ``lab-4/`` - Using ORM with SQLAlchemy
+  * ``lab-5/`` - Building a GUI (the intentionally bad one)
+  * ``lab-6/`` - Login system with authentication
+  * ``lab-8/`` - Unit testing with pytest
+  * ``lab-9/`` - This documentation lab
 
 Getting Started
 ---------------
 
-To get started with this repository:
+If you're just starting out:
 
-1. Clone the repository to your local machine
-2. Set up a virtual environment (see :doc:`development` for details)
-3. Install the required dependencies from ``requirements.txt``
-4. Follow the instructions in each lab's directory
+1. Clone the repo to your computer
+2. Set up a virtual environment (check out the :doc:`development` section)
+3. Install everything from ``requirements.txt``
+4. Read the instructions in each lab folder - they're pretty helpful
 
-Objectives
-----------
+What This Course Covers
+-----------------------
 
-This course covers:
+Throughout these labs, I've worked with:
 
-* Web development with Flask
-* Database design and management with PostgreSQL
-* Object-Relational Mapping with SQLAlchemy
-* User authentication and security
-* Unit testing and test-driven development
-* Documentation and best practices
+* Flask - for building web applications
+* PostgreSQL - our database of choice
+* SQLAlchemy - makes database stuff way easier
+* bcrypt - for password security
+* pytest - testing our code
+* Sphinx - what this documentation is built with!
 

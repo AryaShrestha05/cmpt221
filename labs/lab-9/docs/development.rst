@@ -7,26 +7,26 @@ Setting Up Your Development Environment
 Virtual Environment
 ~~~~~~~~~~~~~~~~~~~
 
-It's recommended to use a virtual environment to manage dependencies:
+You'll want to use a virtual environment, it makes things way easier. Learned this in lab 2!
 
 .. code-block:: bash
 
-   # Create a virtual environment
+   # Create the virtual environment
    python3 -m venv venv
 
-   # Activate the virtual environment
-   # On macOS/Linux:
+   # Activate it
+   # macOS/Linux:
    source venv/bin/activate
-   # On Windows:
+   # Windows:
    venv\Scripts\activate
 
-   # Deactivate when done
+   # When you're done working
    deactivate
 
 Installing Dependencies
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Install all required packages:
+Once your virtual environment is activated, install everything:
 
 .. code-block:: bash
 
@@ -35,60 +35,66 @@ Install all required packages:
 Dependencies
 ------------
 
-The project uses the following key technologies:
+Here's what we're using in this project:
 
-* **Flask** - Web framework for building web applications
-* **SQLAlchemy** - ORM for database interactions
-* **PostgreSQL** - Database management system
-* **bcrypt** - Password hashing and security
-* **pytest** - Testing framework
-* **Sphinx** - Documentation generator
+* **Flask** - Makes web development way easier
+* **SQLAlchemy** - The ORM that lets us use Python instead of raw SQL
+* **PostgreSQL** - Our database
+* **bcrypt** - For password security (used in lab 6)
+* **pytest** - Testing framework we used in lab 8
+* **Sphinx** - What built this documentation
 
 Running Applications
 --------------------
 
-Most labs include an ``app.py`` file that can be run to start a local development server:
+Most labs have an ``app.py`` file. To run it:
 
 .. code-block:: bash
 
    cd labs/lab-X
    python3 app.py
 
-The application will typically be available at ``http://127.0.0.1:5000``
+Then open your browser and go to ``http://127.0.0.1:5000``. Don't forget to refresh if you make changes!
 
 Database Setup
 --------------
 
-1. Install PostgreSQL from https://www.postgresql.org/download/
-2. Create a database (typically named ``marist``)
-3. Create a ``.env`` file in the lab directory with your database credentials:
+From lab 3, here's how to set up your database:
+
+1. Download PostgreSQL from https://www.postgresql.org/download/
+2. Create a database called ``marist`` (or whatever you want)
+3. Make a ``.env`` file in your lab directory:
 
 .. code-block:: env
 
    db_name=marist
    db_owner=postgres
-   db_pass=your_password
+   db_pass=your_password_here
+
+**Important**: Don't commit your ``.env`` file! It's in .gitignore for a reason.
 
 Testing
 -------
 
-Run tests using pytest:
+For labs with tests (like lab 8), run them with:
 
 .. code-block:: bash
 
    cd labs/lab-X
    python3 -m pytest -v
 
+The ``-v`` flag gives you more detailed output.
+
 Version Control
 ---------------
 
-Always work in a branch for each lab:
+Always work in a branch! Never commit directly to main:
 
 .. code-block:: bash
 
    git checkout -b lab-X
-   # Make changes
+   # Do your work here
    git add .
-   git commit -m "Your commit message"
+   git commit -m "describe what you did"
    git push --set-upstream origin lab-X
 

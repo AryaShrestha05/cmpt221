@@ -4,48 +4,50 @@ Troubleshooting
 Common Issues and Solutions
 ---------------------------
 
+I've run into these problems before, here's what worked for me:
+
 Database Connection Errors
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Problem**: Cannot connect to PostgreSQL database
+**Problem**: Can't connect to PostgreSQL
 
-**Solutions**:
+**What I did**:
 
-* Verify PostgreSQL is running: Check the service status in pgAdmin
-* Check ``.env`` file exists and contains correct credentials
-* Verify database name, username, and password are correct
-* Ensure database has been created in pgAdmin
+* Make sure PostgreSQL is actually running - check pgAdmin
+* Double-check your ``.env`` file has the right info (spent way too long on this once)
+* Make sure you created the database in pgAdmin first
+* Verify the database name matches what's in your ``.env`` file
 
 Virtual Environment Issues
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Problem**: Module not found errors after installing packages
+**Problem**: "Module not found" even though you just installed it
 
-**Solutions**:
+**What I did**:
 
-* Ensure virtual environment is activated (check for ``(venv)`` in terminal prompt)
-* Reinstall dependencies: ``pip install -r requirements.txt``
-* Verify you're using the correct Python interpreter in your IDE
+* Check if your virtual environment is activated - look for ``(venv)`` in your terminal
+* Sometimes you need to reinstall: ``pip install -r requirements.txt``
+* Make sure VS Code (or whatever editor) is using the right Python interpreter
 
 Port Already in Use
 ~~~~~~~~~~~~~~~~~~~
 
-**Problem**: ``Address already in use`` error when running Flask app
+**Problem**: Flask says port 5000 is already in use
 
-**Solutions**:
+**What I did**:
 
-* Find and kill the process using port 5000:
+* Kill whatever's using port 5000:
   
   .. code-block:: bash
 
-     # On macOS/Linux:
+     # macOS/Linux:
      lsof -ti:5000 | xargs kill -9
      
-     # On Windows:
+     # Windows:
      netstat -ano | findstr :5000
      taskkill /PID <PID> /F
 
-* Or change the port in ``app.py``:
+* Or just use a different port in ``app.py``:
   
   .. code-block:: python
 
@@ -54,58 +56,58 @@ Port Already in Use
 Import Errors
 ~~~~~~~~~~~~~
 
-**Problem**: ``ModuleNotFoundError`` or ``ImportError``
+**Problem**: Import errors everywhere
 
-**Solutions**:
+**What I did**:
 
-* Ensure you're in the correct directory
-* Check that all ``__init__.py`` files exist in package directories
-* Verify the module path is correct in import statements
-* Ensure the package is installed: ``pip install <package-name>``
+* Make sure you're in the right directory
+* Check that ``__init__.py`` files exist in your package folders (this got me in lab 4)
+* Double-check your import paths are correct
+* Make sure you actually installed the package: ``pip install <package-name>``
 
 Password Hashing Issues
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-**Problem**: Password verification fails even with correct password
+**Problem**: Login won't work even with the right password
 
-**Solutions**:
+**What I did** (from lab 6):
 
-* Ensure passwords are encoded consistently (UTF-8)
-* Verify bcrypt is being used for both hashing and verification
-* Check that salt is being generated properly
+* Make sure you're encoding passwords the same way (UTF-8)
+* Check that you're using bcrypt for both hashing when signing up AND verifying when logging in
+* The salt should be generated automatically, so make sure you're not doing anything weird there
 
 Testing Issues
 ~~~~~~~~~~~~~~
 
-**Problem**: Tests fail or pytest not found
+**Problem**: Tests won't run or pytest isn't found
 
-**Solutions**:
+**What I did** (from lab 8):
 
 * Install pytest: ``pip install pytest pytest-flask``
-* Ensure test files start with ``test_`` or end with ``_test.py``
-* Check that test fixtures are properly configured in ``conftest.py``
-* Run tests from the correct directory
+* Make sure test files are named correctly (start with ``test_``)
+* Check your ``conftest.py`` has the right setup
+* Run tests from the lab directory, not the root
 
 Git Issues
 ~~~~~~~~~~
 
-**Problem**: Merge conflicts or push rejected
+**Problem**: Merge conflicts or can't push
 
-**Solutions**:
+**What I did**:
 
-* Pull latest changes: ``git pull origin main``
-* Resolve conflicts manually in the affected files
-* Ensure you're on the correct branch: ``git branch``
-* Check remote is set correctly: ``git remote -v``
+* Pull the latest changes first: ``git pull origin main``
+* Fix conflicts manually (VS Code makes this easier)
+* Make sure you're on the right branch: ``git branch``
+* Check your remote: ``git remote -v``
 
 Getting Help
 ------------
 
-If you continue to experience issues:
+When I'm stuck:
 
-1. Check the error message carefully - it often contains useful information
-2. Search for the error message online (Stack Overflow, GitHub Issues)
-3. Review the relevant lab's documentation files (``*.md``)
-4. Consult the Resources section for official documentation
-5. Reach out to your instructor or teaching assistant
+1. Read the error message - it usually tells you what's wrong
+2. Google the error (Stack Overflow usually has the answer)
+3. Check the lab's ``.md`` file for hints
+4. Look at the Resources section above
+5. Ask for help - no shame in it!
 
