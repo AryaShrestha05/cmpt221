@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Troubleshooting &#8212; CMPT221 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Resources" href="resources.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="troubleshooting">
+<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">¶</a></h1>
+<section id="common-issues-and-solutions">
+<h2>Common Issues and Solutions<a class="headerlink" href="#common-issues-and-solutions" title="Link to this heading">¶</a></h2>
+<p>I’ve run into these problems before, here’s what worked for me:</p>
+<section id="database-connection-errors">
+<h3>Database Connection Errors<a class="headerlink" href="#database-connection-errors" title="Link to this heading">¶</a></h3>
+<p><strong>Problem</strong>: Can’t connect to PostgreSQL</p>
+<p><strong>What I did</strong>:</p>
+<ul class="simple">
+<li><p>Make sure PostgreSQL is actually running - check pgAdmin</p></li>
+<li><p>Double-check your <code class="docutils literal notranslate"><span class="pre">.env</span></code> file has the right info (spent way too long on this once)</p></li>
+<li><p>Make sure you created the database in pgAdmin first</p></li>
+<li><p>Verify the database name matches what’s in your <code class="docutils literal notranslate"><span class="pre">.env</span></code> file</p></li>
+</ul>
+</section>
+<section id="virtual-environment-issues">
+<h3>Virtual Environment Issues<a class="headerlink" href="#virtual-environment-issues" title="Link to this heading">¶</a></h3>
+<p><strong>Problem</strong>: “Module not found” even though you just installed it</p>
+<p><strong>What I did</strong>:</p>
+<ul class="simple">
+<li><p>Check if your virtual environment is activated - look for <code class="docutils literal notranslate"><span class="pre">(venv)</span></code> in your terminal</p></li>
+<li><p>Sometimes you need to reinstall: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code></p></li>
+<li><p>Make sure VS Code (or whatever editor) is using the right Python interpreter</p></li>
+</ul>
+</section>
+<section id="port-already-in-use">
+<h3>Port Already in Use<a class="headerlink" href="#port-already-in-use" title="Link to this heading">¶</a></h3>
+<p><strong>Problem</strong>: Flask says port 5000 is already in use</p>
+<p><strong>What I did</strong>:</p>
+<ul>
+<li><p>Kill whatever’s using port 5000:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># macOS/Linux:</span>
+lsof<span class="w"> </span>-ti:5000<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span><span class="nb">kill</span><span class="w"> </span>-9
+
+<span class="c1"># Windows:</span>
+netstat<span class="w"> </span>-ano<span class="w"> </span><span class="p">|</span><span class="w"> </span>findstr<span class="w"> </span>:5000
+taskkill<span class="w"> </span>/PID<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>/F
+</pre></div>
+</div>
+</li>
+<li><p>Or just use a different port in <code class="docutils literal notranslate"><span class="pre">app.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">5001</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="import-errors">
+<h3>Import Errors<a class="headerlink" href="#import-errors" title="Link to this heading">¶</a></h3>
+<p><strong>Problem</strong>: Import errors everywhere</p>
+<p><strong>What I did</strong>:</p>
+<ul class="simple">
+<li><p>Make sure you’re in the right directory</p></li>
+<li><p>Check that <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> files exist in your package folders (this got me in lab 4)</p></li>
+<li><p>Double-check your import paths are correct</p></li>
+<li><p>Make sure you actually installed the package: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&lt;package-name&gt;</span></code></p></li>
+</ul>
+</section>
+<section id="password-hashing-issues">
+<h3>Password Hashing Issues<a class="headerlink" href="#password-hashing-issues" title="Link to this heading">¶</a></h3>
+<p><strong>Problem</strong>: Login won’t work even with the right password</p>
+<p><strong>What I did</strong> (from lab 6):</p>
+<ul class="simple">
+<li><p>Make sure you’re encoding passwords the same way (UTF-8)</p></li>
+<li><p>Check that you’re using bcrypt for both hashing when signing up AND verifying when logging in</p></li>
+<li><p>The salt should be generated automatically, so make sure you’re not doing anything weird there</p></li>
+</ul>
+</section>
+<section id="testing-issues">
+<h3>Testing Issues<a class="headerlink" href="#testing-issues" title="Link to this heading">¶</a></h3>
+<p><strong>Problem</strong>: Tests won’t run or pytest isn’t found</p>
+<p><strong>What I did</strong> (from lab 8):</p>
+<ul class="simple">
+<li><p>Install pytest: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pytest</span> <span class="pre">pytest-flask</span></code></p></li>
+<li><p>Make sure test files are named correctly (start with <code class="docutils literal notranslate"><span class="pre">test_</span></code>)</p></li>
+<li><p>Check your <code class="docutils literal notranslate"><span class="pre">conftest.py</span></code> has the right setup</p></li>
+<li><p>Run tests from the lab directory, not the root</p></li>
+</ul>
+</section>
+<section id="git-issues">
+<h3>Git Issues<a class="headerlink" href="#git-issues" title="Link to this heading">¶</a></h3>
+<p><strong>Problem</strong>: Merge conflicts or can’t push</p>
+<p><strong>What I did</strong>:</p>
+<ul class="simple">
+<li><p>Pull the latest changes first: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">origin</span> <span class="pre">main</span></code></p></li>
+<li><p>Fix conflicts manually (VS Code makes this easier)</p></li>
+<li><p>Make sure you’re on the right branch: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span></code></p></li>
+<li><p>Check your remote: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="getting-help">
+<h2>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading">¶</a></h2>
+<p>When I’m stuck:</p>
+<ol class="arabic simple">
+<li><p>Read the error message - it usually tells you what’s wrong</p></li>
+<li><p>Google the error (Stack Overflow usually has the answer)</p></li>
+<li><p>Check the lab’s <code class="docutils literal notranslate"><span class="pre">.md</span></code> file for hints</p></li>
+<li><p>Look at the Resources section above</p></li>
+<li><p>Ask for help - no shame in it!</p></li>
+</ol>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">CMPT221</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#common-issues-and-solutions">Common Issues and Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-help">Getting Help</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="resources.html" title="previous chapter">Resources</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Arya Shrestha.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.0.4</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/troubleshooting.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
