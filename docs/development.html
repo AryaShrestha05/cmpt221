@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Development &#8212; CMPT221 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Resources" href="resources.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="development">
+<h1>Development<a class="headerlink" href="#development" title="Link to this heading">¶</a></h1>
+<section id="setting-up-your-development-environment">
+<h2>Setting Up Your Development Environment<a class="headerlink" href="#setting-up-your-development-environment" title="Link to this heading">¶</a></h2>
+<section id="virtual-environment">
+<h3>Virtual Environment<a class="headerlink" href="#virtual-environment" title="Link to this heading">¶</a></h3>
+<p>You’ll want to use a virtual environment, it makes things way easier. Learned this in lab 2!</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the virtual environment</span>
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+
+<span class="c1"># Activate it</span>
+<span class="c1"># macOS/Linux:</span>
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+<span class="c1"># Windows:</span>
+venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+
+<span class="c1"># When you&#39;re done working</span>
+deactivate
+</pre></div>
+</div>
+</section>
+<section id="installing-dependencies">
+<h3>Installing Dependencies<a class="headerlink" href="#installing-dependencies" title="Link to this heading">¶</a></h3>
+<p>Once your virtual environment is activated, install everything:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</section>
+</section>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading">¶</a></h2>
+<p>Here’s what we’re using in this project:</p>
+<ul class="simple">
+<li><p><strong>Flask</strong> - Makes web development way easier</p></li>
+<li><p><strong>SQLAlchemy</strong> - The ORM that lets us use Python instead of raw SQL</p></li>
+<li><p><strong>PostgreSQL</strong> - Our database</p></li>
+<li><p><strong>bcrypt</strong> - For password security (used in lab 6)</p></li>
+<li><p><strong>pytest</strong> - Testing framework we used in lab 8</p></li>
+<li><p><strong>Sphinx</strong> - What built this documentation</p></li>
+</ul>
+</section>
+<section id="running-applications">
+<h2>Running Applications<a class="headerlink" href="#running-applications" title="Link to this heading">¶</a></h2>
+<p>Most labs have an <code class="docutils literal notranslate"><span class="pre">app.py</span></code> file. To run it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>labs/lab-X
+python3<span class="w"> </span>app.py
+</pre></div>
+</div>
+<p>Then open your browser and go to <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:5000</span></code>. Don’t forget to refresh if you make changes!</p>
+</section>
+<section id="database-setup">
+<h2>Database Setup<a class="headerlink" href="#database-setup" title="Link to this heading">¶</a></h2>
+<p>From lab 3, here’s how to set up your database:</p>
+<ol class="arabic simple">
+<li><p>Download PostgreSQL from <a class="reference external" href="https://www.postgresql.org/download/">https://www.postgresql.org/download/</a></p></li>
+<li><p>Create a database called <code class="docutils literal notranslate"><span class="pre">marist</span></code> (or whatever you want)</p></li>
+<li><p>Make a <code class="docutils literal notranslate"><span class="pre">.env</span></code> file in your lab directory:</p></li>
+</ol>
+<div class="highlight-env notranslate"><div class="highlight"><pre><span></span>db_name=marist
+db_owner=postgres
+db_pass=your_password_here
+</pre></div>
+</div>
+<p><strong>Important</strong>: Don’t commit your <code class="docutils literal notranslate"><span class="pre">.env</span></code> file! It’s in .gitignore for a reason.</p>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading">¶</a></h2>
+<p>For labs with tests (like lab 8), run them with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>labs/lab-X
+python3<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-v
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">-v</span></code> flag gives you more detailed output.</p>
+</section>
+<section id="version-control">
+<h2>Version Control<a class="headerlink" href="#version-control" title="Link to this heading">¶</a></h2>
+<p>Always work in a branch! Never commit directly to main:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>lab-X
+<span class="c1"># Do your work here</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;describe what you did&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>--set-upstream<span class="w"> </span>origin<span class="w"> </span>lab-X
+</pre></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">CMPT221</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-your-development-environment">Setting Up Your Development Environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-applications">Running Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#database-setup">Database Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-control">Version Control</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="introduction.html" title="previous chapter">Introduction</a></li>
+      <li>Next: <a href="resources.html" title="next chapter">Resources</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Arya Shrestha.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.0.4</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/development.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
