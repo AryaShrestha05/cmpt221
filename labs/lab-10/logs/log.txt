@@ -1,0 +1,39 @@
+2025-12-04 19:12:13,945 [INFO] Database initialized successfully
+2025-12-04 19:12:13,968 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-04 19:12:13,968 [INFO] [33mPress CTRL+C to quit[0m
+2025-12-04 19:12:13,969 [INFO]  * Restarting with stat
+2025-12-04 19:12:14,196 [INFO] Database initialized successfully
+2025-12-04 19:12:14,203 [WARNING]  * Debugger is active!
+2025-12-04 19:12:14,204 [INFO]  * Debugger PIN: 331-790-697
+2025-12-04 19:15:03,970 [INFO]  * Detected change in '/app/submit_signup.py', reloading
+2025-12-04 19:15:04,066 [INFO]  * Restarting with stat
+2025-12-04 19:15:04,372 [INFO] Database initialized successfully
+2025-12-04 19:15:04,381 [WARNING]  * Debugger is active!
+2025-12-04 19:15:04,381 [INFO]  * Debugger PIN: 331-790-697
+2025-12-04 19:15:27,604 [INFO]  * Detected change in '/app/app.py', reloading
+2025-12-04 19:15:27,651 [INFO]  * Restarting with stat
+2025-12-04 19:15:28,312 [INFO] Database initialized successfully
+2025-12-04 19:15:28,320 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.0.3:5000
+2025-12-04 19:15:28,320 [INFO] [33mPress CTRL+C to quit[0m
+2025-12-04 19:15:28,321 [INFO]  * Restarting with stat
+2025-12-04 19:15:28,520 [INFO] Database initialized successfully
+2025-12-04 19:15:28,525 [WARNING]  * Debugger is active!
+2025-12-04 19:15:28,525 [INFO]  * Debugger PIN: 365-886-087
+2025-12-04 19:15:33,453 [INFO] User accessed home page
+2025-12-04 19:15:33,457 [INFO] 192.168.65.1 - - [04/Dec/2025 19:15:33] "GET / HTTP/1.1" 200 -
+2025-12-04 19:15:36,643 [INFO] New user registered: alice.johnson@example.com
+2025-12-04 19:15:36,643 [INFO] 192.168.65.1 - - [04/Dec/2025 19:15:36] "[32mPOST /signup HTTP/1.1[0m" 302 -
+2025-12-04 19:15:36,649 [INFO] User accessed home page
+2025-12-04 19:15:36,650 [INFO] 192.168.65.1 - - [04/Dec/2025 19:15:36] "GET / HTTP/1.1" 200 -
+2025-12-04 19:15:41,219 [INFO] 192.168.65.1 - - [04/Dec/2025 19:15:41] "GET /signup HTTP/1.1" 200 -
+2025-12-04 19:15:41,309 [INFO] 192.168.65.1 - - [04/Dec/2025 19:15:41] "GET /static/style.css HTTP/1.1" 200 -
+2025-12-04 19:15:41,326 [INFO] 192.168.65.1 - - [04/Dec/2025 19:15:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-12-04 19:15:58,810 [INFO]  * Detected change in '/app/submit_signup.py', reloading
+2025-12-04 19:15:58,884 [INFO]  * Restarting with stat
+2025-12-04 19:15:59,084 [INFO] Database initialized successfully
+2025-12-04 19:15:59,090 [WARNING]  * Debugger is active!
+2025-12-04 19:15:59,091 [INFO]  * Debugger PIN: 365-886-087
