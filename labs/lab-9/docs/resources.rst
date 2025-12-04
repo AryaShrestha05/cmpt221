@@ -1,50 +1,50 @@
 Resources
 =========
 
-Official Documentation
-----------------------
+This section describes classes and functions private to cmpt221. It is intended to document how the application works
 
-These are the docs I've found most helpful:
+labs.lab-1
+----------
 
-* `Flask Documentation <https://flask.palletsprojects.com/>`_ - When Flask does something weird, check here
-* `SQLAlchemy Documentation <https://www.sqlalchemy.org/>`_ - ORM stuff can be confusing, this helps
-* `PostgreSQL Documentation <https://www.postgresql.org/docs/>`_ - Database reference
-* `Sphinx Documentation <https://www.sphinx-doc.org/>`_ - How this documentation was built
-* `pytest Documentation <https://docs.pytest.org/>`_ - Testing help
+Introduction to Git and GitHub. This lab covers creating pull requests and understanding version control workflows.
 
-Tutorials and Learning Resources
----------------------------------
+labs.lab-2
+----------
 
-For when the official docs are too technical:
+Setting up Python virtual environments. This lab demonstrates how to create, activate, and manage virtual environments for Python projects.
 
-* `W3Schools HTML <https://www.w3schools.com/html/>`_ - Great for HTML basics (used this for lab 5)
-* `W3Schools CSS <https://www.w3schools.com/css/>`_ - CSS help
-* `W3Schools Python <https://www.w3schools.com/python/>`_ - Python basics
-* `Real Python <https://realpython.com/>`_ - Really good tutorials, usually explains things well
+labs.lab-3
+----------
 
-Git and Version Control
------------------------
+Database connectivity with PostgreSQL. This lab covers connecting Flask applications to PostgreSQL databases using SQLAlchemy and creating database schemas.
 
-Git can be confusing, these help:
+labs.lab-4
+----------
 
-* `Git Documentation <https://git-scm.com/doc>`_ - The official docs
-* `GitHub Guides <https://guides.github.com/>`_ - GitHub's tutorial pages
-* `Atlassian Git Tutorials <https://www.atlassian.com/git/tutorials>`_ - Really detailed Git tutorials
+Object-Relational Mapping (ORM) with SQLAlchemy. This lab demonstrates using SQLAlchemy ORM to interact with databases using Python classes instead of raw SQL queries.
 
-Security Resources
-------------------
+labs.lab-5
+----------
 
-From lab 6 where we learned about password security:
+Building web interfaces with Flask templates. This lab covers creating HTML templates, routing, and building a multi-page web application.
 
-* `OWASP Top 10 <https://owasp.org/www-project-top-ten/>`_ - Common security issues to watch out for
-* `bcrypt Documentation <https://github.com/pyca/bcrypt/>`_ - How we hash passwords
+labs.lab-6
+----------
 
-Additional Tools
-----------------
+User authentication and password security. This lab implements a login system with password hashing using bcrypt for secure password storage and verification.
 
-Tools that might be useful:
+labs.lab-7
+----------
 
-* `Postman <https://www.postman.com/>`_ - For testing APIs
-* `pgAdmin <https://www.pgadmin.org/>`_ - What we use to manage PostgreSQL databases
-* `VS Code <https://code.visualstudio.com/>`_ - My code editor of choice
+(Not yet completed)
+
+labs.lab-8
+----------
+
+Unit testing with pytest. This lab covers writing and running unit tests for Flask applications using pytest and pytest-flask.
+
+labs.lab-9
+----------
+
+Documentation with Sphinx. This lab demonstrates creating and publishing documentation using Sphinx and deploying it to GitHub Pages.
 

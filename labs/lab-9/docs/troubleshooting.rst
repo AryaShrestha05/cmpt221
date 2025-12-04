@@ -1,113 +1,45 @@
 Troubleshooting
 ===============
 
-Common Issues and Solutions
----------------------------
+This section describes some common issues that can arise and possible solutions.
 
-I've run into these problems before, here's what worked for me:
+Issue #1: Sphinx Build Failure
+-------------------------------
 
-Database Connection Errors
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Description**: When running ``make html``, Sphinx fails to build the documentation with errors about missing modules or configuration issues.
 
-**Problem**: Can't connect to PostgreSQL
+**Solution**: 
 
-**What I did**:
+* Ensure Sphinx is installed in your virtual environment: ``pip install sphinx``
+* Verify all required dependencies are installed: ``pip install -r requirements.txt``
+* Check that the ``conf.py`` file exists and is properly configured
+* Make sure you're running the build command from the ``labs/lab-9/docs`` directory
+* If using Windows without make, use ``make.bat html`` instead
 
-* Make sure PostgreSQL is actually running - check pgAdmin
-* Double-check your ``.env`` file has the right info (spent way too long on this once)
-* Make sure you created the database in pgAdmin first
-* Verify the database name matches what's in your ``.env`` file
+Issue #2: GitHub Pages 404 Error
+---------------------------------
 
-Virtual Environment Issues
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Description**: After deploying documentation to GitHub Pages, the site shows a 404 error or doesn't display correctly.
 
-**Problem**: "Module not found" even though you just installed it
+**Solution**:
 
-**What I did**:
+* Verify the ``docs`` directory is at the repository root (not in ``labs/lab-9/``)
+* Ensure the ``.nojekyll`` file exists in the ``docs`` directory
+* Check GitHub Pages settings: Source should be "Deploy from a branch", Branch should be ``lab-9``, Folder should be ``/docs``
+* Wait a few minutes for GitHub to build and deploy the site (check the Actions tab)
+* Verify all HTML files were copied from ``_build/html`` to the ``docs`` directory
+* Clear browser cache and try accessing the site again
 
-* Check if your virtual environment is activated - look for ``(venv)`` in your terminal
-* Sometimes you need to reinstall: ``pip install -r requirements.txt``
-* Make sure VS Code (or whatever editor) is using the right Python interpreter
+Issue #3: Virtual Environment Package Issues
+---------------------------------------------
 
-Port Already in Use
-~~~~~~~~~~~~~~~~~~~
+**Description**: Modules are not found even after installation, or packages are installed in the wrong environment.
 
-**Problem**: Flask says port 5000 is already in use
+**Solution**:
 
-**What I did**:
-
-* Kill whatever's using port 5000:
-  
-  .. code-block:: bash
-
-     # macOS/Linux:
-     lsof -ti:5000 | xargs kill -9
-     
-     # Windows:
-     netstat -ano | findstr :5000
-     taskkill /PID <PID> /F
-
-* Or just use a different port in ``app.py``:
-  
-  .. code-block:: python
-
-     app.run(debug=True, port=5001)
-
-Import Errors
-~~~~~~~~~~~~~
-
-**Problem**: Import errors everywhere
-
-**What I did**:
-
-* Make sure you're in the right directory
-* Check that ``__init__.py`` files exist in your package folders (this got me in lab 4)
-* Double-check your import paths are correct
-* Make sure you actually installed the package: ``pip install <package-name>``
-
-Password Hashing Issues
-~~~~~~~~~~~~~~~~~~~~~~~
-
-**Problem**: Login won't work even with the right password
-
-**What I did** (from lab 6):
-
-* Make sure you're encoding passwords the same way (UTF-8)
-* Check that you're using bcrypt for both hashing when signing up AND verifying when logging in
-* The salt should be generated automatically, so make sure you're not doing anything weird there
-
-Testing Issues
-~~~~~~~~~~~~~~
-
-**Problem**: Tests won't run or pytest isn't found
-
-**What I did** (from lab 8):
-
-* Install pytest: ``pip install pytest pytest-flask``
-* Make sure test files are named correctly (start with ``test_``)
-* Check your ``conftest.py`` has the right setup
-* Run tests from the lab directory, not the root
-
-Git Issues
-~~~~~~~~~~
-
-**Problem**: Merge conflicts or can't push
-
-**What I did**:
-
-* Pull the latest changes first: ``git pull origin main``
-* Fix conflicts manually (VS Code makes this easier)
-* Make sure you're on the right branch: ``git branch``
-* Check your remote: ``git remote -v``
-
-Getting Help
-------------
-
-When I'm stuck:
-
-1. Read the error message - it usually tells you what's wrong
-2. Google the error (Stack Overflow usually has the answer)
-3. Check the lab's ``.md`` file for hints
-4. Look at the Resources section above
-5. Ask for help - no shame in it!
+* Verify your virtual environment is activated (look for ``(venv)`` in your terminal prompt)
+* Reinstall all packages: ``pip install -r requirements.txt``
+* Check which Python interpreter is being used: ``which python3`` (macOS/Linux) or ``where python`` (Windows)
+* Ensure your IDE (VS Code, PyCharm, etc.) is configured to use the virtual environment's Python interpreter
+* If issues persist, recreate the virtual environment: ``deactivate``, then ``python3 -m venv venv``, then ``source venv/bin/activate`` (macOS/Linux) or ``venv\Scripts\activate`` (Windows)
 
