@@ -291,3 +291,13 @@
 2025-11-06 15:32:23,868 [WARNING] Invalid first name attempt: 123
 2025-11-06 15:32:23,871 [INFO] Database initialized successfully
 2025-11-06 15:32:23,873 [WARNING] Invalid phone number attempt: 123
+2025-12-04 14:31:13,305 [CRITICAL] Failed to initialize database
+2025-12-04 14:31:13,341 [CRITICAL] Failed to initialize database
+2025-12-04 14:31:13,357 [CRITICAL] Failed to initialize database
+2025-12-04 14:31:13,371 [CRITICAL] Failed to initialize database
+2025-12-04 14:31:13,384 [CRITICAL] Failed to initialize database
+2025-12-04 14:31:13,402 [CRITICAL] Failed to initialize database
+2025-12-04 14:31:13,419 [CRITICAL] Failed to initialize database
+2025-12-04 14:31:13,437 [CRITICAL] Failed to initialize database
+2025-12-04 14:31:13,455 [CRITICAL] Failed to initialize database
+2025-12-04 14:31:13,471 [CRITICAL] Failed to initialize database
